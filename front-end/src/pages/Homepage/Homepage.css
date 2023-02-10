@@ -1,0 +1,16 @@
+.homepage {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: bisque;
+}
+
+.section {
+  background-color: #282c34;
+  width: 40%;
+  height: 40%;
+  margin-top: 30px;
+  min-height: 25vw;
+}
