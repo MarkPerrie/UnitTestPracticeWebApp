@@ -16,9 +16,7 @@ function ReactLogo() {
   return (
     <div className="react-logo-div">
       <img src={logo} className="react-logo" alt="logo" />
-      <p>
-        Edit <code>src/ReactLogo.js</code> and save to reload.
-      </p>
+      {heartbeat != null ? <p> Edit <code>src/ReactLogo.js</code> and save to reload.</p> : <p>turn the server on silly</p>}
       <a
         className="react-logo-link"
         href="https://reactjs.org"
