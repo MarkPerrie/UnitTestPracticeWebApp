@@ -1,49 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useForm } from "react-hook-form";
 import './Email.css'
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    axios({
-        method: "POST",
-        url: "http://localhost:5000/email",
-        data: this.state
-    }).then((response) => {
-        if (response.data.status === 'success') {
-            alert("Message Sent.");
-            this.resetForm()
-        } else if (response.data.status === 'fail') {
-            alert("Message failed to send.")
-        }
-    })
-}
+
 const resetForm = () => {
-    changeName()
-    changeEmail()
-    changeSubject()
-    changeMessage()
+    setEmail("")
+    setSubject("")
+    setMessage("")
 }
 
 function Email() {
-    const [name, changeName] = useState()
-    const [email, changeEmail] = useState()
-    const [subject, changeSubject] = useState()
-    const [message, changeMessage] = useState()
+    const [email, setEmail] = useState()
+    const [subject, setSubject] = useState()
+    const [message, setMessage] = useState()
+
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = async data => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+        };
+        try {
+            fetch(`http://localhost:5000/email?email=${data.email}&subject=${data.subject}&message=${data.message}`, requestOptions)
+                .then(response => response.json())
+                .then(data => console.log(data));
+        } catch (error) {
+            alert("email failed to send" + email)
+        }
+    }
+
+
+    const onReset = () => {
+        reset();
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
                 <label>To:</label>
-                <input type="email" className="form-control" id="InputEmail1" placeholder="Enter email" />
+                <input className="form-control" placeholder="email" {...register("email", { required: true })} />
             </div>
-
             <div className="form-group">
                 <label>Subject:</label>
-                <input type="text" className="form-control" id="InputEmail1" placeholder="Enter subject" />
+                <input className="form-control" placeholder="subject"{...register("subject", { required: true })} />
             </div>
             <div className="form-group">
                 <label>Message:</label>
-                <textarea className="form-control" id="formControlTextarea" rows="6" placeholder="Enter subject"></textarea>
+                <textarea className="form-control" rows="6" placeholder="message"{...register("message", { required: true })} />
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <div className="form-group">
+                {errors.exampleRequired && <span>This field is required</span>}
+                <button type="submit" className="btn btn-primary">Submit</button>
+                <button onClick={onReset} className="btn btn-danger">Reset</button>
+            </div>
         </form>
     )
 }

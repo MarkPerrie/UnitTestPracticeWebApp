@@ -1,18 +1,17 @@
 import './Checklist.css'
 import { useEffect, useState } from 'react'
-import axios from "axios";
-
-const fetchData = async (addressUrl, hook) => {
-    fetch(addressUrl)
-      .then((response) => response.json())
-      .then((data) => {
-            hook(data.shoppingList);
-      })
-  };
+import { fetchData } from '../../helpers/fetchData';
 
 function Checklist() {
-   const [shoppingList, setShoppingList] = useState([]);
-    fetchData("http://localhost:5000/shopping", setShoppingList);
+    const [shoppingList, setShoppingList] = useState([]);
+    useEffect(() => {
+        const getAsyncData = async () => {
+          let data = await fetchData('http://localhost:5000/shopping');
+          setShoppingList(data.shoppingList)
+        }
+        getAsyncData()
+      }, [])
+      
     return (
         <div className='checklist-div'>
             <header>Shopping List</header>
@@ -21,7 +20,15 @@ function Checklist() {
                     if (index % 3) {
                         return (
                             <div className="form-check form-switch" key={index}>
-                                <input className="form-check-input" disabled id={`${entry}-input`} type="checkbox" />
+                                <input className="form-check-input" checked disabled id={`${entry}-input`} type="checkbox" />
+                                <label className="form-check-label" >{entry}</label>
+                            </div>
+                        )
+                    }
+                    if (index % 4) {
+                        return (
+                            <div className="form-check form-switch" key={index}>
+                                <input className="form-check-input" defaultChecked id={`${entry}-input`} type="checkbox" />
                                 <label className="form-check-label" >{entry}</label>
                             </div>
                         )

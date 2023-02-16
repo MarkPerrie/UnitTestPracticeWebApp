@@ -1,4 +1,4 @@
-    label {
-justify-content: baseline;
-color: white;
+label {
+    align-content: flex-start;
+    color: white;
 }
