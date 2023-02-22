@@ -2,7 +2,7 @@
 
 This repo exists as a simple web app with a react front end and a python flask back end. The code for both are contained in this repo and held in the coresponding front-end and back-end folders. The purpose of this repo is to provide a tangiable and ready to go app that coders can test writing unit, integration and end to end tests. A good way to keep this reusable is to create a branch off of main to use the app and keep the main branch in this default state so others can make use of the testing challenges.
 
-## Installation
+### Installation
 
 # front end: 
 1. navigate to the front end folder through the terminal (`cd front-end` command) 
