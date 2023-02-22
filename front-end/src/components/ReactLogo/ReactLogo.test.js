@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom'
 import ReactLogo from './ReactLogo';
 
 test('renders learn react link', () => {
@@ -7,10 +8,8 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('react logo is spinning', () => {
-  const tranform = jest.fn()
-
+test('react logo has been rendered', () => {
   render(<ReactLogo />);
-
-  expect(tranform).toHaveBeenCalled();
+  const reactLogo = screen.getByRole('img')
+  expect(reactLogo).toBeInTheDocument();
 });
