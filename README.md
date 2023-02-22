@@ -28,15 +28,12 @@ The app requires you go into the front end folder and run `npm run start` to boo
 
 ### ********** CHALLENGE 1 **********
 In both repos you will see I have partially written some unit test files. Complete both these unit test files so that they have 100% test coverage (`npm run test --coverage` for the front end andwrewrwerefdwerEWRWREW ). A very important habit to not get into here is chase getting 100% coverage above all else when unit testing. [This article on the subject explains why better than I will](https://methodpoet.com/100-code-coverage/#:~:text=For%20example%2C%20100%25%20code%20coverage).
-### *********************************
 
 ### ********** CHALLENGE 2 **********
 Naturally with the two files above finished it only makes sense to create unit test files for the full front end folder. You should have a test file for all the component javascript files as well as for the main homepage file and helper function file. (The back end will only need a single test file `test_app.py` as there is only one app file)
-### *********************************
 
 ## ********** CHALLENGE 3 **********
 Notice I have only told you how to run tests from the front or back end folders individually. A challenge will be to write a script that will allow you to rull ALL tests for both the front and back ends from the root folder of this repo, `UnitTestExample git:(main)`, rather than having to navigate into these folders using the `cd` command to run the tests here
-## *********************************
 
 # What Next?
 
