@@ -19,9 +19,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
 def heartbeat():
-    return {
-        "greeting": "Hello World. The grass is green, the sun is shining and the server is alive!"
-    }
+    return {"greeting": "Hello World. The grass is green, the sun is shining and the server is alive!"}
 
 
 @app.route("/email", methods=['POST'])
