@@ -32,7 +32,7 @@ In both repos you will see I have partially written some unit test files. Comple
 ### ********** CHALLENGE 2 **********
 Naturally with the two files above finished it only makes sense to create unit test files for the full front end folder. You should have a test file for all the component javascript files as well as for the main homepage file and helper function file. (The back end will only need a single test file `test_app.py` as there is only one app file)
 
-## ********** CHALLENGE 3 **********
+### ********** CHALLENGE 3 **********
 Notice I have only told you how to run tests from the front or back end folders individually. A challenge will be to write a script that will allow you to rull ALL tests for both the front and back ends from the root folder of this repo, `UnitTestExample git:(main)`, rather than having to navigate into these folders using the `cd` command to run the tests here
 
 # What Next?
