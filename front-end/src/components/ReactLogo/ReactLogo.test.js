@@ -1,8 +1,16 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import ReactLogo from './ReactLogo';
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  render(<ReactLogo />);
+  const linkElement = screen.getByText(/learn unit tests/i);
   expect(linkElement).toBeInTheDocument();
+});
+
+test('react logo is spinning', () => {
+  const tranform = jest.fn()
+
+  render(<ReactLogo />);
+
+  expect(tranform).toHaveBeenCalled();
 });
